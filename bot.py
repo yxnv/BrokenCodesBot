@@ -4,10 +4,16 @@ import aiohttp
 import time
 import asyncio
 from discord import option
+import json
 
 intents = discord.Intents.default()
 intents.members = True
 intents.message_content = True
+
+with open('settings.json', 'r') as json_file:
+    data = json.load(json_file)
+
+bot_token = data["DISCORD_BOT_TOKEN"]
 
 bot = commands.Bot(
     command_prefix=commands.when_mentioned_or("!"),
@@ -191,4 +197,4 @@ class CodeGenerator(commands.Cog):
 
 bot.add_cog(CodeGenerator(bot))
 
-bot.run('<<BOT TOKEN GOES HERE>>')
+bot.run(bot_token)
