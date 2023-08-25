@@ -1,1 +1,1 @@
-py-cord aiohttp asyncio
+py-cord aiohttp asyncio json
